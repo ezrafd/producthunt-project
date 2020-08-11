@@ -12,5 +12,8 @@ class Product(models.Model):
     url = models.TextField()
     hunter = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def summary(self):
+        return self.body[:100]
+
     def pub_date_pretty(self):
         return self.pub_date.strftime('%b %e %Y')
